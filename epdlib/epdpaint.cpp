@@ -71,6 +71,16 @@ void Paint::DrawAbsolutePixel(int x, int y, int colored) {
     }
 }
 
+void Paint::CopyProgmemImage(int x, int y,
+	unsigned char *data, unsigned int width, unsigned int height)
+{
+	int i;
+
+	for (i = 0; i < height; i++){
+		memcpy_P(this->image + ((y + i) * this->width/8) + x/8, data + (i * width/8), width/8);
+	}
+} 
+
 /**
  *  @brief: Getters and Setters
  */

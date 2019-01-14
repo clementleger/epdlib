@@ -37,6 +37,7 @@
 #define IF_INVERT_COLOR     1
 
 #include "fonts.h"
+#include <avr/pgmspace.h>
 
 class Paint {
 public:
@@ -61,6 +62,8 @@ public:
     void DrawFilledRectangle(int x0, int y0, int x1, int y1, int colored);
     void DrawCircle(int x, int y, int radius, int colored);
     void DrawFilledCircle(int x, int y, int radius, int colored);
+    void CopyProgmemImage(int x, int y,
+	unsigned char *data, unsigned int width, unsigned int height);
 
 private:
     unsigned char* image;
